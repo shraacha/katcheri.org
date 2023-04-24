@@ -1,20 +1,13 @@
 import bs4
-import urllib.request
+import concurrent.futures
+import glob
 import gzip
 import os
 import progress.bar
 import sys
-import concurrent.futures
+import urllib.request
 
-CURL_FORMAT = "curl '{}' -H 'Accept-Encoding: gzip' -H 'Cookie: G_ENABLED_IDPS=google; sangeethamshare_login=svmhdvn%40gmail.com; PHPSESSID=f3sa8nki892brh2mk86m8ou47j; sessiontime=1682292771; G_AUTHUSER_H=0' -H 'Sec-Fetch-Site: same-origin' --output {}"
-
-TEST_URL = 'https://www.sangeethamshare.org/tvg/UPLOADS-5801---6000/6000-Mannargudi_A_Easwaran-Layavinyasam-Adi_tALam/'
-
-REQ_HEADERS = {
-    'Accept-Encoding': 'gzip',
-    'Cookie': 'G_ENABLED_IDPS=google; sangeethamshare_login=svmhdvn%40gmail.com; PHPSESSID=f3sa8nki892brh2mk86m8ou47j; sessiontime=1682303819; G_AUTHUSER_H=0',
-    'Sec-Fetch-Site': 'same-origin'
-}
+COOKIE = 'G_ENABLED_IDPS=google; sangeethamshare_login=svmhdvn%40gmail.com; PHPSESSID=f3sa8nki892brh2mk86m8ou47j; sessiontime=1682303819; G_AUTHUSER_H=0'
 
 def scrape_all_concerts_list():
     with open('concerts_raw.html') as f:
@@ -33,7 +26,7 @@ def download_single_katcheri(link):
 
     katcheri_html_path = os.path.join(new_dir, 'katcheri.html')
     if not os.path.exists(katcheri_html_path):
-        req = urllib.request.Request(link, headers=REQ_HEADERS)
+        req = urllib.request.Request(link, headers={ 'Accept-Encoding': 'gzip', 'Cookie': COOKIE, 'Sec-Fetch-Site': 'same-origin' })
         try:
             with urllib.request.urlopen(req) as response:
                 with open(katcheri_html_path, 'bw') as outfile:
@@ -55,5 +48,35 @@ def download_all_concerts():
             for future in concurrent.futures.as_completed(futures):
                 progress_bar.next()
 
+def download_single_mp3list(links_file):
+    dirpath = os.path.dirname(links_file)
+    with open(links_file) as f:
+        for line in f:
+            link = line.strip()
+
+            filename = os.path.basename(link)
+            mp3_local_path = os.path.join(dirpath, filename)
+            if line != '' and not os.path.exists(mp3_local_path):
+                req = urllib.request.Request(link, headers={ 'Cookie': COOKIE })
+                try:
+                    with urllib.request.urlopen(req) as response:
+                        with open(mp3_local_path, 'bw') as outfile:
+                            outfile.write(response.read())
+                except urllib.error.HTTPError:
+                    print('links_file: {}\tbroken_link: {}'.format(links_file, link))
+
+def download_all_mp3s():
+    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+        all_mp3links_files = glob.glob('all_concerts/*/mp3links.txt')
+        futures = []
+
+        for links_file in all_mp3links_files:
+            futures.append(executor.submit(download_single_mp3list, links_file))
+
+        with progress.bar.Bar('Downloading mp3s', max=len(all_mp3links_files)) as progress_bar:
+            for future in concurrent.futures.as_completed(futures):
+                progress_bar.next()
+
 #scrape_all_concerts_list()
-download_all_concerts()
+#download_all_concerts()
+download_all_mp3s()
