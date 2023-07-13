@@ -174,3 +174,13 @@ poetry.toml
 pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python
+
+##### OUR OWN ADDITIONS #####
+
+.flac
+.m4a
+.mp3
+.ogg
+.opus
+.wav
+.wma
