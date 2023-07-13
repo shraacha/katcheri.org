@@ -1,0 +1,23 @@
+PLAYPAUSE LINK ERROR: 'utf-8' codec can't decode byte 0x96 in position 48: invalid start byte
+	failing link: http://pdx.ravisnet.com:8080/player2.php?b=c2FuZ2VldGhhbXNoYXJlLm9yZy9wdWJsaWNfaHRtbC9tdXJ0aHkvS2FybmF0YWsvVVBMT0FEUy0wMDEtMjAwLzE4OC1QVW5uaWtyaXNobmFuLUNhbGN1dHRhLw==&t=MTBfc3V0dHVtIHZpemhpY2ggY2h1ZGFyZGhhYW4ga2FubmFtbWFhLWJoYWlyYXZplmFhZGktc3VicmFtYW55YSBiaGFyYXRpLm1wMw==
+
+PLAYPAUSE LINK ERROR: Invalid base64-encoded string: number of data characters (49) cannot be 1 more than a multiple of 4
+	failing link: http://pdx.ravisnet.com:8080/player2.php?b=c2FuZ2VldGhhbXNoYXJlLm9yZy9wdWJsaWNfaHRtbC92aWpheWFnb3BhbC9VUExPQURTLTIwMS00MDAvMjEzLVZvbGV0aV9WZW5rYXRlc3dhcmx1LVZvY2FsLw==&t=MDktQmhhamFyZWJoYWphbWFuYXNhX+KAk19LYW5uYWRhLm1wMw==
+
+KATCHERI ERROR: 'utf-8' codec can't decode byte 0xff in position 41701: invalid start byte
+	failing katcheri file: http://pdx.ravisnet.com:8080/player2.php?b=c2FuZ2VldGhhbXNoYXJlLm9yZy9wdWJsaWNfaHRtbC90dmcvVVBMT0FEUy0zMjAxLS0tMzQwMC8zMzE0LVRWX1NhbmthcmFuYXJheWFuYW4v&t=MDYtc2FuaV90YW5pX211a2thbmktckFtYWxpbmdhc3dhbXlfdGlydWFydXRwQS5tcDM=
+
+PLAYPAUSE LINK ERROR: 'utf-8' codec can't decode byte 0x96 in position 15: invalid start byte
+	failing link: http://pdx.ravisnet.com:8080/player2.php?b=c2FuZ2VldGhhbXNoYXJlLm9yZy9wdWJsaWNfaHRtbC90dmcvVVBMT0FEUy0yMDAxLS0tMjIwMC8yMTQ2LVJ1ZHJhcGF0bmFtX1NfUmFtYWthbnRoLVNhbmdlZXRoX1NhbW1lbGFuXzIwMTEv&t=MDQtYW1iYV9ick92YXZFlmRoYXJtYXZhdGmWYmlkQXJhbV9rcmlTbmFwcGEubXAz
+
+PLAYPAUSE LINK ERROR: 'utf-8' codec can't decode byte 0x96 in position 17: invalid start byte
+	failing link: http://pdx.ravisnet.com:8080/player2.php?b=c2FuZ2VldGhhbXNoYXJlLm9yZy9wdWJsaWNfaHRtbC9tdXJ0aHkvS2FybmF0YWsvVVBMT0FEUy0wMDEtMjAwLzA1MS1NU1MtVlZTLVRLTS0xOTcwcy1TaHJpLVZhc3VkZXZhbnMtVXBsb2FkLw==&t=MDhfVHVEYXlhbHVEaW5obyCWIFR1bHNpZGFzIEJoYWphbi5tcDM=
+
+PLAYPAUSE LINK ERROR: 'utf-8' codec can't decode byte 0x96 in position 17: invalid start byte
+	failing link: http://pdx.ravisnet.com:8080/player2.php?b=c2FuZ2VldGhhbXNoYXJlLm9yZy9wdWJsaWNfaHRtbC9tdXJ0aHkvS2FybmF0YWsvVVBMT0FEUy0wMDEtMjAwLzA1MS1NU1MtVlZTLVRLTS0xOTcwcy1TaHJpLVZhc3VkZXZhbnMtVXBsb2FkLw==&t=MDhfVHVEYXlhbHVEaW5oby2WLVR1bHNpZGFzLUJoYWphbi5tcDM=
+
+PLAYPAUSE LINK ERROR: Incorrect padding
+	failing link: http://pdx.ravisnet.com:8080/player2.php?b=c2FuZ2VldGhhbXNoYXJlLm9yZy9wdWJsaWNfaHRtbC9zdi8wNDNfMjAwOV8wNF8xOV9LdW1hcmVzaF9HYW5lc2hfUlNNX0ZIUy8=&t=MTJfbWFuYXNhX1NhbmNoYXJhcmVfc0FtYV+WX0FkaV9TYWRhc2hpdmFfQnJhaG1lbmRyYS5tcDM=
+
+PLAYPAUSE LINK ERROR: Invalid base64-encoded string: number of data characters (85) cannot be 1 more than a multiple of 4
+	failing link: http://pdx.ravisnet.com:8080/player2.php?b=c2FuZ2VldGhhbXNoYXJlLm9yZy9wdWJsaWNfaHRtbC9zdi8wNDNfMjAwOV8wNF8xOV9LdW1hcmVzaF9HYW5lc2hfUlNNX0ZIUy8=&t=MTNfUmFtYWJoYWRyYV9SYV9yYV9BbmFuZGFCYWlyYXZpX0FkaV+WX0JoYWRyYWNoYWxhX1JhbWFkYXNhLm1wMw==
